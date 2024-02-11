@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img class="img" src="./gifs/valentineGIF.gif">
+        <p class="text">Will you be my valentine ACHITMERGEN?</p>
+        <div class="buttons">
+            <button class="yes" onclick="redirectToNewPage()">YES</button>
+            <button class="no" id="noButton" onclick="changeText()">NO</button>
+        </div>
+    </div>
+
+    <script defer>
+function redirectToNewPage() {
+            window.location.href = 'page2.html'; 
+        }
+
+        const noButton = document.getElementById('noButton');
+        const buttonTexts = [
+            "No PLEASSEEEEE",
+            "Are you f***ing serious?",
+            "Nuh-uh",
+            "Not Today",
+            "Negative",
+            "No Way",
+            "You are de*d",
+            "STOP THIS INSTANCE"
+        ];
+
+        let currentSize = 16;
+        let currentPaddingSide = 1;
+        let currentPaddingTop = 0.4;
+
+        function increaseSize() {
+            var yesButton = document.querySelector(".yes");
+            currentSize *= 1.4;
+            currentPaddingSide *= 1.4;
+            currentPaddingTop *= 1.4;
+            yesButton.style.fontSize = currentSize + 'px'; 
+            yesButton.style.paddingTop = currentPaddingTop + 'rem'; 
+            yesButton.style.paddingBottom = currentPaddingTop + 'rem';
+            yesButton.style.paddingLeft = currentPaddingSide + 'rem'; 
+            yesButton.style.paddingRight = currentPaddingSide + 'rem'; 
+        }
+
+        noButton.addEventListener("click", ()=> {
+            increaseSize();
+        })
+
+        function changeText() {
+            const randomIndex = Math.floor(Math.random() * buttonTexts.length);
+            noButton.textContent = buttonTexts[randomIndex];
+        }
+    </script>
+</body>
+</html>
